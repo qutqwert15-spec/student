@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جماعة الإعفاء — الواجبات اليومية</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📚</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="homework" data-tier="base">
+
+<div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="grid-lines"></i></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-badge" data-sticker>🎓</span>
+    <span class="brand-tx">جماعة <b>الإعفاء</b><small>نظام السعي السنوي · العراق</small></span>
+  </a>
+  <nav class="nav">
+    <a href="index.html">الرئيسية</a>
+    <a href="sing-mark.html">تسجيل الدرجات</a>
+    <a href="homework.html" class="active">الواجبات اليومية</a>
+    <a href="finel.html">النتيجة النهائية</a>
+  </nav>
+  <div class="hud">
+    <span class="hud-chip" id="hud-level">⚡ 1</span>
+    <span class="hud-chip" id="hud-streak">🔥 —</span>
+    <span class="hud-chip acc" id="hud-avg">📊 —</span>
+    <span class="lvbar" title="تقدم المستوى"><i id="hud-lvbar"></i></span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="page-head rv">
+    <p class="kicker">الواجبات اليومية</p>
+    <h1>كل يوم خطوة نحو <em>الإعفاء</em></h1>
+    <p class="muted">سجّل واجباتك، اضغط +1 كل ما تكمل صفحة، واحصل على مستوى وستريك إضافي</p>
+  </section>
+
+  <section class="glass hw-date rv">
+    <h2 class="sec-t">📅 واجبات اليوم</h2>
+    <p class="muted" id="hw-date"></p>
+  </section>
+
+  <section class="glass hw-add rv" id="hw-add-section">
+    <h2 class="sec-t">➕ أضف واجب</h2>
+    <div class="add-row">
+      <input class="inp" type="text" id="hw-name" placeholder="اسم المادة… مثال: الرياضيات" maxlength="40">
+      <input class="inp num small-inp" type="number" id="hw-pages" placeholder="عدد الصفحات" min="1" step="1" value="1">
+      <button class="btn btn-acc" id="hw-add-btn">إضافة</button>
+    </div>
+  </section>
+
+  <section class="hw-list rv" id="hw-list"></section>
+
+  <section class="hw-complete rv" id="hw-complete-section" hidden>
+    <button class="btn btn-acc btn-big" id="hw-complete-btn">✔️ تم — هذه هي كل واجباتي اليوم</button>
+  </section>
+
+  <section class="glass hw-done rv" id="hw-done-section" hidden>
+    <div class="hw-done-content">
+      <div class="hw-done-emoji">🎉</div>
+      <h2 class="sec-t">أكملت واجبات اليوم!</h2>
+      <p class="muted" id="hw-done-stats"></p>
+      <div class="cta-row center">
+        <button class="btn btn-ghost" id="hw-new-day">🌅 يوم جديد</button>
+        <a class="btn btn-acc" href="index.html">الرئيسية ←</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">جماعة الإعفاء 🇮🇶 — كل واجب يكتمل يقربك من الإعفاء</footer>
+
+<div class="gta-screen" id="gta-screen">
+  <div class="gta-content">
+    <h1 class="gta-title">MISSION PASSED</h1>
+    <div class="gta-subtitle">الواجبات اليومية</div>
+    <div class="gta-stats" id="gta-stats"></div>
+    <div class="gta-respect">
+      <span class="gta-respect-label">Respect</span>
+      <span class="gta-respect-value">+10</span>
+    </div>
+    <button class="btn btn-ghost gta-continue" id="gta-continue">متابعة</button>
+  </div>
+</div>
+
+<div class="toasts" id="toasts"></div>
+
+<div class="modal" id="modal">
+  <div class="modal-card glass">
+    <h3 id="modal-title"></h3>
+    <p id="modal-body" class="muted"></p>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" id="modal-no">إلغاء</button>
+      <button class="btn btn-acc" id="modal-ok">نعم</button>
+    </div>
+  </div>
+</div>
+
+<script src="math.js"></script>
+<script src="script.js"></script>
+<script src="homework.js"></script>
+</body>
+</html>

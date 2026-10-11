@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>جماعة الإعفاء — النتيجة النهائية</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="finel" data-tier="base">
+
+<div class="bg" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="grid-lines"></i></div>
+
+<header class="topbar">
+  <a class="brand" href="index.html">
+    <span class="brand-badge" data-sticker>🎓</span>
+    <span class="brand-tx">جماعة <b>الإعفاء</b><small>نظام السعي السنوي · العراق</small></span>
+  </a>
+  <nav class="nav">
+    <a href="index.html">الرئيسية</a>
+    <a href="sing-mark.html">تسجيل الدرجات</a>
+    <a href="finel.html" class="active">النتيجة النهائية</a>
+    <a href="homework.html">الواجبات اليومية</a>
+  </nav>
+  <div class="hud">
+    <span class="hud-chip" id="hud-level">⚡ 1</span>
+    <span class="hud-chip" id="hud-streak">🔥 —</span>
+    <span class="hud-chip acc" id="hud-avg">📊 —</span>
+    <span class="lvbar" title="تقدم المستوى"><i id="hud-lvbar"></i></span>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="page-head rv">
+    <p class="kicker">النتيجة النهائية</p>
+    <h1>لحظة <em>الحقيقة</em></h1>
+    <p class="muted">الفصل الأول + نصف السنة + الفصل الثاني = حكم الإعفاء.</p>
+  </section>
+
+  <!-- لم تكتمل السنة -->
+  <section class="glass notyet" id="finel-notyet" hidden>
+    <div class="v-emoji">⏳</div>
+    <h2 class="sec-t">السنة لسه ما اكتملت</h2>
+    <p class="muted">لازم تكمل المراحل الثلاثة حتى تظهر نتيجتك النهائية.</p>
+    <div id="ny-list" class="term-progress center"></div>
+    <div class="cta-row center"><a class="btn btn-acc btn-big" href="sing-mark.html">رجوع للتسجيل ←</a></div>
+  </section>
+
+  <!-- النتيجة -->
+  <div id="finel-ready">
+
+    <section class="board glass rv">
+      <div class="board-dial">
+        <div class="sticker" id="f-sticker">🎓</div>
+        <div class="dial" id="f-dial" style="--p:0">
+          <div class="dial-core">
+            <span class="dial-num" id="f-num">—</span>
+            <span class="dial-cap">المعدل السنوي</span>
+          </div>
+        </div>
+        <p class="board-tier">التقييم: <b id="f-tier-name">—</b></p>
+      </div>
+      <div class="board-info">
+        <div id="verdict" class="verdict"></div>
+        <div class="cta-row">
+          <button class="btn btn-ghost" id="btn-replay">🔊 إعادة الصوت</button>
+          <a class="btn btn-ghost" href="sing-mark.html">رجوع للتسجيل</a>
+          <button class="btn btn-danger" data-reset>🗑 البداية من جديد</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="glass rv table-card">
+      <h2 class="sec-t">كشف الدرجات السنوي</h2>
+      <div class="tscroll">
+        <table class="ftable">
+          <thead>
+            <tr>
+              <th>المادة</th>
+              <th class="c">الفصل الأول</th>
+              <th class="c">نصف السنة</th>
+              <th class="c">الفصل الثاني</th>
+              <th class="c">السنوي</th>
+              <th class="c">الإعفاء</th>
+            </tr>
+          </thead>
+          <tbody id="f-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="stats rv">
+      <div class="stat glass"><b id="st-level">1</b><span>المستوى ⚡</span></div>
+      <div class="stat glass"><b id="st-streak">0</b><span>الستريك الحالي 🔥</span></div>
+      <div class="stat glass"><b id="st-best">0</b><span>أفضل ستريك</span></div>
+      <div class="stat glass"><b id="st-count">0</b><span>عدد المواد 📚</span></div>
+    </section>
+
+  </div>
+
+</main>
+
+<footer class="foot">جماعة الإعفاء 🇮🇶 — بالتوفيق لكل طالب عراقي</footer>
+
+<div class="toasts" id="toasts"></div>
+
+<div class="modal" id="modal">
+  <div class="modal-card glass">
+    <h3 id="modal-title"></h3>
+    <p id="modal-body" class="muted"></p>
+    <div class="modal-btns">
+      <button class="btn btn-ghost" id="modal-no">إلغاء</button>
+      <button class="btn btn-acc" id="modal-ok">نعم</button>
+    </div>
+  </div>
+</div>
+
+<div class="die-ov" id="die-ov">
+  <div class="die-card glass">
+    <div class="die-skull">💀</div>
+    <h2>نحن نتأسف لك…</h2>
+    <p class="muted">لكن لا تستطيع الاستمرار معنا في هذه المنصة.<br>درجة تحت 35 تعني البداية من الصفر.</p>
+    <button class="btn btn-danger btn-big" id="die-restart">أبدأ من جديد</button>
+  </div>
+</div>
+
+<script src="math.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
